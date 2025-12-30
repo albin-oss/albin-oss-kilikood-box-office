@@ -259,6 +259,7 @@ export default function Home() {
               events={category.events}
             />
             {index === 0 && <Advertisement />}
+            {index === 1 && <Advertisement />}
           </div>
         ))}
       </div>

@@ -9,8 +9,9 @@ export default function Advertisement() {
   if (!isVisible) return null
 
   return (
-    <div className="mb-12 px-4 sm:px-6 lg:px-8">
-      <div className="relative max-w-7xl mx-auto bg-gradient-to-r from-primary-yellow/20 via-primary-yellow/10 to-transparent border border-primary-yellow/30 rounded-lg overflow-hidden">
+    <div className="mb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative bg-gradient-to-r from-primary-yellow/20 via-primary-yellow/10 to-transparent border border-primary-yellow/30 rounded-lg overflow-hidden">
         <button
           onClick={() => setIsVisible(false)}
           className="absolute top-2 right-2 z-10 text-gray-400 hover:text-white transition-colors"
@@ -50,6 +51,7 @@ export default function Advertisement() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
         </div>
+      </div>
       </div>
     </div>
   )
