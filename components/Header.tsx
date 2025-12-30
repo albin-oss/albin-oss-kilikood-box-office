@@ -44,26 +44,20 @@ export default function Header() {
                 Events
               </Link>
               <Link
-                href="/kids"
-                className="text-primary-yellow font-semibold border-b-2 border-primary-yellow"
-              >
-                Kids
-              </Link>
-              <Link
                 href="/about"
                 className="text-white hover:text-primary-yellow transition-colors"
               >
                 About
               </Link>
-              <Link
-                href="/create-event/profile"
-                className="text-white hover:text-primary-yellow transition-colors bg-primary-yellow/20 px-4 py-2 rounded hover:bg-primary-yellow/30 border border-primary-yellow/50"
-              >
-                Add Your Event
-              </Link>
             </div>
           </div>
           <div className="flex items-center space-x-4">
+            <Link
+              href="/create-event/profile"
+              className="text-white hover:text-primary-yellow transition-colors bg-primary-yellow/20 px-4 py-2 rounded hover:bg-primary-yellow/30 border border-primary-yellow/50 text-sm font-semibold"
+            >
+              Add Your Event
+            </Link>
             <button className="text-white hover:text-primary-yellow transition-colors">
               <FiSearch className="w-5 h-5" />
             </button>

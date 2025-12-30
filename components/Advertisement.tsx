@@ -18,30 +18,30 @@ export default function Advertisement() {
         >
           <FiX className="w-5 h-5" />
         </button>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6 md:p-8">
-          <div className="flex flex-col justify-center space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 md:p-6">
+          <div className="flex flex-col justify-center space-y-3">
             <div className="inline-block">
               <span className="px-3 py-1 bg-primary-yellow text-black text-xs font-bold rounded uppercase tracking-wider">
                 Special Offer
               </span>
             </div>
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
+            <h3 className="text-xl md:text-2xl font-bold text-white">
               Get 20% Off Your First Booking!
             </h3>
-            <p className="text-gray-300 text-sm md:text-base">
+            <p className="text-gray-300 text-sm">
               Use code <span className="font-bold text-primary-yellow">KILIKOOD20</span> at checkout
               and enjoy exclusive discounts on all kids events.
             </p>
-            <div className="flex items-center space-x-4 pt-2">
-              <button className="px-6 py-2 bg-primary-yellow text-black font-semibold rounded hover:bg-primary-yellow-dark transition-colors">
+            <div className="flex items-center space-x-4 pt-1">
+              <button className="px-5 py-2 bg-primary-yellow text-black font-semibold rounded hover:bg-primary-yellow-dark transition-colors text-sm">
                 Claim Offer
               </button>
-              <span className="text-primary-yellow text-sm font-semibold">
+              <span className="text-primary-yellow text-xs font-semibold">
                 Limited Time Only
               </span>
             </div>
           </div>
-          <div className="relative h-48 md:h-64 rounded-lg overflow-hidden">
+          <div className="relative h-32 md:h-40 rounded-lg overflow-hidden">
             <img
               src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=600&fit=crop&q=80&auto=format"
               alt="Special offer"

@@ -32,16 +32,19 @@ export default function Hero() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="/events/2"
+                href="/events/2#tickets"
                 className="flex items-center space-x-2 bg-primary-yellow text-black px-8 py-3 rounded font-semibold hover:bg-primary-yellow-dark transition-colors"
               >
                 <FiPlay className="w-5 h-5" />
                 <span>Get Tickets</span>
               </Link>
-              <button className="flex items-center space-x-2 bg-dark-black-light/70 text-white px-8 py-3 rounded font-semibold hover:bg-dark-black-light transition-colors border border-primary-yellow/30">
+              <Link
+                href="/events/2"
+                className="flex items-center space-x-2 bg-dark-black-light/70 text-white px-8 py-3 rounded font-semibold hover:bg-dark-black-light transition-colors border border-primary-yellow/30"
+              >
                 <FiInfo className="w-5 h-5" />
                 <span>More Info</span>
-              </button>
+              </Link>
             </div>
             <div className="mt-8 flex items-center space-x-6 text-sm">
               <span className="px-3 py-1 bg-green-500 rounded">All Ages</span>

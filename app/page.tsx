@@ -253,7 +253,7 @@ export default function Home() {
       <Hero />
       <div className="relative z-10 -mt-32 pt-16">
         {eventCategories.map((category, index) => (
-          <div key={index}>
+          <div key={index} className={index === 0 ? 'mt-16' : ''}>
             <EventRow
               title={category.title}
               events={category.events}
