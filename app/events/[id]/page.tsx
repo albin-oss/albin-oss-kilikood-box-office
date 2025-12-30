@@ -7,7 +7,7 @@ import Footer from '@/components/Footer'
 import ImageCarousel from '@/components/ImageCarousel'
 import TicketSelector, { CartItem } from '@/components/TicketSelector'
 import SponsorsSection from '@/components/SponsorsSection'
-import { FiCalendar, FiMapPin, FiClock, FiArrowLeft, FiShoppingCart, FiUser, FiMail, FiPhone, FiCheck } from 'react-icons/fi'
+import { FiCalendar, FiMapPin, FiClock, FiArrowLeft, FiShoppingCart, FiUser, FiMail, FiPhone, FiCheck, FiCreditCard, FiLock, FiFileText } from 'react-icons/fi'
 
 interface TicketCategory {
   id: string
@@ -33,8 +33,10 @@ interface Event {
   time: string
   venue: string
   description: string
+  fullDescription?: string
   duration: string
   ageGroup: string
+  gateOpenTime?: string
   ticketCategories: TicketCategory[]
   sponsors: Sponsor[]
 }
@@ -84,29 +86,76 @@ const events: Event[] = [
   },
   {
     id: 2,
-    title: 'Vineeth Srinivasan Live',
+    title: 'Vineeth Sreenivasan Live in Concert',
     images: [
       'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&h=1200&fit=crop&q=80&auto=format',
       'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800&h=1200&fit=crop&q=80&auto=format',
+      'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=1200&fit=crop&q=80&auto=format',
+      'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&h=1200&fit=crop&q=80&auto=format',
     ],
     price: 45,
-    date: '2024-06-19',
-    time: '8:00 PM',
-    venue: 'Niagara Falls',
+    date: 'Saturday, June 20, 2026',
+    time: '6:00 PM – 10:00 PM',
+    venue: 'Canada Event Centre - 300 Water St, Whitby, ON L1N 9B6',
     description:
-      'Experience the magic of live music with Vineeth Srinivasan! An electrifying concert featuring your favorite hits and unforgettable performances. Join thousands of fans for an evening of incredible music and entertainment.',
-    duration: '180 minutes',
+      'Get ready for the biggest Malayalam music concert of 2026! Vineeth Sreenivasan, one of India\'s most celebrated singers, songwriters, and performers, is coming to Canada with his full band for an electrifying live concert.',
+    fullDescription: `🎶 Vineeth Sreenivasan Live in Concert Toronto, Canada Tour 2026 🎤
+📅 Date: Saturday, June 20, 2026
+🕕 Time: 6:00 PM – 10:00 PM
+📍 Venue: Canada Event Centre -300 Water St, Whitby, ON L1N 9B6
+
+Get ready for the biggest Malayalam music concert of 2026! Vineeth Sreenivasan, one of India's most celebrated singers, songwriters, and performers, is coming to Canada with his full band for an electrifying live concert. Experience an unforgettable evening of music, culture, and celebration as Vineeth performs his greatest hits, fan favorites, and soulful melodies in an immersive live setting.
+
+This is more than just a concert – it's a once-in-a-lifetime opportunity for the Malayalam music community in Canada to come together and sing along to the songs they love.
+
+🎟 Early Bird ticket holders will enjoy priority seating, while remaining seats will be available on a first-come, first-served basis within each ticket category.
+
+👨‍👩‍👧 Families are welcome — children 10 years and under can attend free of charge (no separate ticket required).`,
+    duration: '4 hours',
     ageGroup: 'All Ages',
+    gateOpenTime: '4:30 PM',
     ticketCategories: [
-      { id: '1', name: 'General Admission', price: 45, memberPrice: 36, quantity: 500 },
-      { id: '2', name: 'VIP', price: 85, memberPrice: 68, quantity: 100 },
+      { id: '1', name: 'Early Bird', price: 65, memberPrice: 52, quantity: 200 },
+      { id: '2', name: 'General Admission', price: 75, memberPrice: 60, quantity: 500 },
+      { id: '3', name: 'VIP', price: 120, memberPrice: 96, quantity: 100 },
+      { id: '4', name: 'Premium', price: 150, memberPrice: 120, quantity: 50 },
     ],
     sponsors: [
       {
         id: '1',
-        category: 'Presented By',
-        name: 'Premier Event Productions',
-        image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=200&h=200&fit=crop',
+        category: 'Platinum Sponsor',
+        name: 'Metropolis Realty Group',
+        image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=300&h=200&fit=crop&q=80&auto=format',
+      },
+      {
+        id: '2',
+        category: 'Gold Sponsor',
+        name: 'Levitate Entertainment',
+        image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=300&h=200&fit=crop&q=80&auto=format',
+      },
+      {
+        id: '3',
+        category: 'Silver Sponsor',
+        name: 'Team Garudanz',
+        image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=300&h=200&fit=crop&q=80&auto=format',
+      },
+      {
+        id: '4',
+        category: 'Media Partner',
+        name: 'Canadian Malayalam Media',
+        image: 'https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=300&h=200&fit=crop&q=80&auto=format',
+      },
+      {
+        id: '5',
+        category: 'Community Partner',
+        name: 'Toronto Malayalee Association',
+        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=300&h=200&fit=crop&q=80&auto=format',
+      },
+      {
+        id: '6',
+        category: 'Venue Partner',
+        name: 'Canada Event Centre',
+        image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=300&h=200&fit=crop&q=80&auto=format',
       },
     ],
   },
@@ -240,9 +289,19 @@ export default function EventDetailPage({
               {event.title}
             </h1>
             <div className="bg-primary-yellow/20 border-l-4 border-primary-yellow p-6 rounded-lg my-6">
-              <p className="text-xl md:text-2xl text-white leading-relaxed font-medium">
-                {event.description}
-              </p>
+              <div className="text-white leading-relaxed font-medium whitespace-pre-line">
+                {event.fullDescription ? (
+                  <div className="text-base md:text-lg space-y-3">
+                    {event.fullDescription.split('\n').map((line, index) => (
+                      <p key={index} className={line.trim().startsWith('🎶') || line.trim().startsWith('📅') || line.trim().startsWith('🕕') || line.trim().startsWith('📍') || line.trim().startsWith('🎟') || line.trim().startsWith('👨') ? 'font-semibold text-primary-yellow' : ''}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xl md:text-2xl">{event.description}</p>
+                )}
+              </div>
             </div>
           </div>
 
@@ -260,6 +319,9 @@ export default function EventDetailPage({
               <div>
                 <p className="text-xs text-gray-400">Time</p>
                 <p className="text-white font-semibold">{event.time}</p>
+                {event.gateOpenTime && (
+                  <p className="text-xs text-primary-yellow mt-1">Gate opens: {event.gateOpenTime}</p>
+                )}
               </div>
             </div>
             <div className="flex items-center space-x-3 text-gray-300 bg-dark-black-light p-4 rounded-lg">
@@ -452,12 +514,117 @@ export default function EventDetailPage({
                   ${totalCartPrice.toFixed(2)}
                 </span>
               </div>
-              <button className="w-full mt-6 bg-primary-yellow hover:bg-primary-yellow-dark text-black font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center justify-center space-x-2">
-                <FiShoppingCart className="w-5 h-5" />
-                <span>Proceed to Checkout</span>
-              </button>
             </div>
           )}
+
+          {/* Payment Processing Section */}
+          {totalCartItems > 0 && (
+            <div className="bg-dark-black-light rounded-lg p-6 mb-8 border border-primary-yellow/20">
+              <div className="flex items-center space-x-3 mb-6">
+                <FiCreditCard className="w-6 h-6 text-primary-yellow" />
+                <h3 className="text-2xl font-bold text-white">Secure Payment</h3>
+              </div>
+              <div className="bg-dark-black rounded-lg p-6 mb-6 border border-gray-700">
+                <div className="flex items-center space-x-2 mb-4">
+                  <FiLock className="w-5 h-5 text-green-400" />
+                  <span className="text-green-400 font-semibold">Secure Payment Processing</span>
+                </div>
+                <p className="text-gray-300 text-sm mb-4">
+                  Your payment is processed securely through Stripe. We accept all major credit cards, debit cards, and digital wallets.
+                </p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+                  <div className="bg-white/10 rounded p-3 text-center">
+                    <span className="text-xs text-gray-400">Visa</span>
+                  </div>
+                  <div className="bg-white/10 rounded p-3 text-center">
+                    <span className="text-xs text-gray-400">Mastercard</span>
+                  </div>
+                  <div className="bg-white/10 rounded p-3 text-center">
+                    <span className="text-xs text-gray-400">Amex</span>
+                  </div>
+                  <div className="bg-white/10 rounded p-3 text-center">
+                    <span className="text-xs text-gray-400">PayPal</span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between pt-4 border-t border-gray-700">
+                  <div>
+                    <p className="text-white font-semibold text-lg">Order Total</p>
+                    <p className="text-gray-400 text-sm">Including all fees</p>
+                  </div>
+                  <span className="text-primary-yellow font-bold text-2xl">
+                    ${totalCartPrice.toFixed(2)}
+                  </span>
+                </div>
+              </div>
+              <button 
+                onClick={() => {
+                  // In a real app, this would redirect to Stripe checkout
+                  alert('Redirecting to secure payment gateway...\n\nIn production, this would connect to Stripe for payment processing.')
+                }}
+                className="w-full bg-primary-yellow hover:bg-primary-yellow-dark text-black font-bold py-4 px-8 rounded-lg transition-colors text-lg flex items-center justify-center space-x-2"
+              >
+                <FiCreditCard className="w-5 h-5" />
+                <span>Proceed to Secure Payment</span>
+              </button>
+              <p className="text-gray-400 text-xs text-center mt-4">
+                🔒 Your payment information is encrypted and secure
+              </p>
+            </div>
+          )}
+
+          {/* Terms & Conditions Section */}
+          <div className="bg-dark-black-light rounded-lg p-6 mb-8 border border-primary-yellow/20">
+            <div className="flex items-center space-x-3 mb-6">
+              <FiFileText className="w-6 h-6 text-primary-yellow" />
+              <h3 className="text-2xl font-bold text-white">Terms & Conditions</h3>
+            </div>
+            <div className="space-y-6 text-gray-300">
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-3">Ticket Purchase & Entry</h4>
+                <ul className="space-y-2 text-sm list-disc list-inside ml-2">
+                  <li>All sales are final. No refunds, exchanges, or cancellations will be permitted unless the event is officially canceled.</li>
+                  <li>Each ticket is valid for one entry only and must be presented at the venue for admission.</li>
+                  <li>Children 10 years and under do not require a ticket but must be accompanied by a ticketed adult.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-3">Seating & Access</h4>
+                <ul className="space-y-2 text-sm list-disc list-inside ml-2">
+                  <li>The gate opens by {event.gateOpenTime || '4:30 PM'}. The event features tiered seating categories.</li>
+                  <li>Early Bird ticket holders will receive priority seating in their designated section.</li>
+                  <li>All other ticket holders will be seated on a first-come, first-served basis within their respective ticket category.</li>
+                  <li>The organizer recommends arriving early to secure preferred seating.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-3">Event Policies</h4>
+                <ul className="space-y-2 text-sm list-disc list-inside ml-2">
+                  <li>The organizer reserves the right to refuse entry or remove any person whose behavior is deemed disruptive or unsafe.</li>
+                  <li>Outside food, drinks, and professional recording equipment are not allowed.</li>
+                  <li>Photography and videography may be restricted in certain areas or segments of the show.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-3">Event Changes</h4>
+                <ul className="space-y-2 text-sm list-disc list-inside ml-2">
+                  <li>The organizer reserves the right to make changes to the event date, time, venue, lineup, or program due to unforeseen circumstances.</li>
+                  <li>If the event is postponed, tickets will remain valid for the rescheduled date.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-3">Liability</h4>
+                <ul className="space-y-2 text-sm list-disc list-inside ml-2">
+                  <li>Attendees assume all risks associated with attending the event. The organizer is not responsible for loss of personal belongings, injury, or other incidents beyond its control.</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-lg font-semibold text-white mb-3">Consent for Media</h4>
+                <ul className="space-y-2 text-sm list-disc list-inside ml-2">
+                  <li>By attending, you consent to photography, video, and audio recording that may be used for promotional purposes by the event organizer.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
           {/* Sponsors Section */}
           <SponsorsSection sponsors={event.sponsors} />
