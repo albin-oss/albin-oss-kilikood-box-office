@@ -1,10 +1,58 @@
 import Header from '@/components/Header'
-import Hero from '@/components/Hero'
+import HeroCarousel from '@/components/HeroCarousel'
 import EventRow from '@/components/EventRow'
 import Advertisement from '@/components/Advertisement'
 import Footer from '@/components/Footer'
 
 export default function Home() {
+  // Featured events for hero carousel
+  const featuredEvents = [
+    {
+      id: 2,
+      title: 'Vineeth Srinivasan Live in Concert',
+      description: 'Experience the magic of live music with Vineeth Srinivasan! An electrifying concert featuring your favorite hits and unforgettable performances.',
+      image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1920&h=1080&fit=crop&q=80&auto=format',
+      price: 45,
+      date: '2024-06-19',
+      venue: 'Niagara Falls',
+      duration: '180 min',
+      ageGroup: 'All Ages',
+    },
+    {
+      id: 1,
+      title: 'Winter Bells Christmas Show',
+      description: 'Join us for an unforgettable Christmas mega show! A spectacular tribute performance featuring amazing acts, music, and entertainment for the whole family.',
+      image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920&h=1080&fit=crop&q=80&auto=format',
+      price: 35,
+      date: '2024-12-27',
+      venue: 'Chinese Cultural Centre',
+      duration: '120 min',
+      ageGroup: 'All Ages',
+    },
+    {
+      id: 11,
+      title: 'Mallu DJ Party',
+      description: 'Get ready for the ultimate party experience! Join us for an electrifying night of music, dance, and celebration.',
+      image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1920&h=1080&fit=crop&q=80&auto=format',
+      price: 30,
+      date: '2024-12-31',
+      venue: 'Scarborough',
+      duration: '240 min',
+      ageGroup: '18+',
+    },
+    {
+      id: 7,
+      title: 'Christmas & New Year Celebration',
+      description: 'Ring in the holidays with our spectacular Christmas and New Year celebration! Festive music, amazing performances, and unforgettable memories.',
+      image: 'https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=1920&h=1080&fit=crop&q=80&auto=format',
+      price: 20,
+      date: '2024-12-27',
+      venue: 'Saskatoon',
+      duration: '180 min',
+      ageGroup: 'All Ages',
+    },
+  ]
+
   const eventCategories = [
     {
       title: 'Popular Events',
@@ -250,7 +298,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-dark-black">
       <Header />
-      <Hero />
+      <HeroCarousel events={featuredEvents} />
       <div className="relative z-10 -mt-32 pt-16">
         {eventCategories.map((category, index) => (
           <div key={index} className={index === 0 ? 'mt-16' : ''}>
