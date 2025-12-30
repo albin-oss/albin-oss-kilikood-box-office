@@ -155,7 +155,6 @@ export default function EventDetailPage({
   const [memberVerified, setMemberVerified] = useState(false)
   const [cart, setCart] = useState<CartItem[]>([])
   const [showCart, setShowCart] = useState(false)
-  const router = useRouter()
 
   useEffect(() => {
     // Check if URL has #tickets hash and scroll to it
@@ -407,13 +406,6 @@ export default function EventDetailPage({
               />
             )}
           </div>
-              <TicketSelector
-                categories={event.ticketCategories}
-                isMember={memberVerified}
-                onCartUpdate={handleCartUpdate}
-              />
-            </div>
-          )}
 
           {/* Cart and Checkout */}
           {totalCartItems > 0 && (
