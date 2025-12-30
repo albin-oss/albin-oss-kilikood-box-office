@@ -56,7 +56,7 @@ export default function Header() {
               href="/create-event/profile"
               className="text-white hover:text-primary-yellow transition-colors bg-primary-yellow/20 px-4 py-2 rounded hover:bg-primary-yellow/30 border border-primary-yellow/50 text-sm font-semibold"
             >
-              Add Event
+              Add Your Event
             </Link>
             <button className="text-white hover:text-primary-yellow transition-colors">
               <FiSearch className="w-5 h-5" />
